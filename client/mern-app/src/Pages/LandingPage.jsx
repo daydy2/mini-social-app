@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Sidenav from "../Components/Sidenav/Sidenav";
 import Profile from "../Components/ProfileSIdenav/Profile";
 import Feedlane from "../Components/Feedlane/Feedlane";
+import PostComment from "../Components/PostComment/PostComment";
 
 const LandingPage = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -34,14 +35,13 @@ const LandingPage = () => {
         <section className="landing__feedlane">
           <Feedlane />
         </section>
-
       </main>
     </Home>
   );
 };
 
 const Home = styled.main`
-  main {
+  .landingPage__main {
     background: #f1f1ef;
     color: black;
     padding-left: 2rem;
@@ -50,13 +50,14 @@ const Home = styled.main`
     display: flex;
     flex-direction: row;
   }
-  .landingpage__sidenav{
+
+  .landingpage__sidenav {
     display: flex;
     flex-direction: column;
     height: 1vh;
-    box-shadow: 0px 7px 3px rgba(0, 0, 0, .3);
+    box-shadow: 0px 7px 3px rgba(0, 0, 0, 0.3);
   }
-  .landing__feedlane{
+  .landing__feedlane {
     overflow-y: auto;
   }
 `;
