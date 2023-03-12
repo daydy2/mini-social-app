@@ -10,7 +10,7 @@ const Toolbar = (props) => {
           <DrawerToggleButton click={props.drawerClickHandler} />
         </div>
         <div className="toolbar__logo">
-          <a href="/">TrippleDev</a>
+          <a href="/">MINI-APP</a>
         </div>
         <div className="spacer" />
         <div className="toolbar_navigation-items">
@@ -18,17 +18,16 @@ const Toolbar = (props) => {
             
             <li className="">
               <a
-                href="https://drive.google.com/file/d/1h5bFoDzcrCUVvOrQGoolg_uGM2_KTkFI/view?usp=sharing"
+                href="/"
                 target="_blank"
                 rel="noreferrer"
                 download
               >
-                {" "}
-                Resume
+                Home
               </a>
             </li>
             <li className="">
-              <a href="/">Contact</a>
+              <a href="/">Profile</a>
             </li>
             
           </ul>
