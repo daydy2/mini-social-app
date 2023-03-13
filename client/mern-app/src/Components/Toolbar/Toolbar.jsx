@@ -15,21 +15,14 @@ const Toolbar = (props) => {
         <div className="spacer" />
         <div className="toolbar_navigation-items">
           <ul className="">
-            
-            <li className="">
-              <a
-                href="/"
-                target="_blank"
-                rel="noreferrer"
-                download
-              >
-                Home
-              </a>
-            </li>
             <li className="">
               <a href="/">Profile</a>
             </li>
-            
+            <li className="">
+              <a href="/" >
+                Logout
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
