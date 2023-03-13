@@ -7,9 +7,11 @@ import Sidenav from "../Components/Sidenav/Sidenav";
 import Profile from "../Components/ProfileSIdenav/Profile";
 import Feedlane from "../Components/Feedlane/Feedlane";
 import PostComment from "../Components/PostComment/PostComment";
+import PostFeed from "../Components/PostFeed/PostFeed";
 
 const LandingPage = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
+  const [openComment, setOpenComment] = useState(false);
 
   const drawerToggleClickHandler = () => {
     setSideDrawerOpen(!sideDrawerOpen);
@@ -17,6 +19,11 @@ const LandingPage = () => {
 
   const backdropClickHandler = () => {
     setSideDrawerOpen(false);
+    setOpenComment(false);
+  };
+
+  const openCommentHandler = () => {
+    setOpenComment(!openComment);
   };
 
   return (
@@ -32,8 +39,22 @@ const LandingPage = () => {
           <Sidenav />
           <Profile />
         </section>
+
         <section className="landing__feedlane">
-          <Feedlane />
+          <PostComment show={openComment} close={openCommentHandler} />
+          {openComment ? <Backdrop click={backdropClickHandler} /> : null}
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+        </section>
+
+        <section className="landing__post-general">
+          <PostFeed />
         </section>
       </main>
     </Home>
@@ -56,9 +77,11 @@ const Home = styled.main`
     flex-direction: column;
     height: 1vh;
     box-shadow: 0px 7px 3px rgba(0, 0, 0, 0.3);
+    position: fixed;
   }
   .landing__feedlane {
-    overflow-y: auto;
+    
+    margin-left: 30rem;
   }
 `;
 

@@ -5,12 +5,12 @@ import ProfileImg from "../ProfileImg/ProfileImg";
 import Typography from "../ProfileTypography/Typography";
 
 const Feedlane = (props) => {
-//   const [showComment, setShowComment] = useState(false);
-//   const handleComment = () => {
-//     setShowComment(!showComment);
-//   };
+  //   const [showComment, setShowComment] = useState(false);
+  //   const handleComment = () => {
+  //     setShowComment(!showComment);
+  //   };
   return (
-    <Feed>
+    <Feeds>
       <main>
         <section className="feedUser">
           <ProfileImg width={"60px"} height={"61px"} />
@@ -26,34 +26,32 @@ const Feedlane = (props) => {
             aut voluptas atque libero ratione alias, ducimus quasi voluptatibus
             veniam soluta architecto.
             {/* timeStamp */}
-            
           </p>
           <div className="feedConnect">
-          
-            <span className="feedConnect__span" onClick={() => {}}>
+            <span className="feedConnect__span" onClick={props.comment}>
               {Comment}
-              <div className="descriptors">Comment</div>
+              {/* <div className="descriptors">Comment</div> */}
             </span>
 
-            <span className="feedConnect__span" onClick={() => {}}>
+            <span className="feedConnect__span" onClick={props.comment}>
               {Follow}
-              <div className="descriptors">Follow</div>
+              {/* <div className="descriptors">Follow</div> */}
             </span>
             <span className="feedConnect__span" onClick={() => {}}>
               {UnFollow}
-              <div className="descriptors">UnFollow</div>
+              {/* <div className="descriptors">UnFollow</div> */}
             </span>
           </div>
         </section>
       </main>
-    </Feed>
+    </Feeds>
   );
 };
 
-const Feed = styled.main`
+const Feeds = styled.main`
   main {
-    width: 68rem;
-    margin: 4rem 1rem 1rem 1rem;
+    width: 50vw;
+    margin: 5rem 1rem 1rem 0rem;
     background-color: #ffffff;
     padding: 1.5rem;
     border-radius: 0 3rem 0 3rem;
@@ -61,7 +59,7 @@ const Feed = styled.main`
   .feedUser {
     display: block !important;
   }
-  .feedPost p{
+  .feedPost p {
     margin: 1rem;
     font-family: inherit;
     font-size: 1.5rem;
@@ -70,8 +68,8 @@ const Feed = styled.main`
     text-align: justify;
     text-justify: inter-word;
 
-    &:hover{
-        cursor: pointer;
+    &:hover {
+      cursor: pointer;
     }
   }
   .feedConnect {
@@ -84,11 +82,14 @@ const Feed = styled.main`
 
     & span {
       color: #974444;
+      transition: all 0.3s ease-in-out;
 
-      &:hover {
+      &:hover {;
         cursor: pointer;
+        color: black;
 
-        .feedConnect__span .descriptors {
+        ${
+          "" /* .feedConnect__span .descriptors {
           display: block;
           position: relative;
           width: 6rem;
@@ -107,6 +108,7 @@ const Feed = styled.main`
             border-bottom: solid 1rem 10px transparent;
             border-top: solid 1rem transparent;
           }
+        } */
         }
       }
     }

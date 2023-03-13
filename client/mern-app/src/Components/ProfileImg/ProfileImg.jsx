@@ -19,7 +19,7 @@ const ProfileImg = (props) => {
 
 const Image = styled.section`
   .profile__img {
-    margin: 2rem;
+    margin: 1.5rem 2rem;
     
 
     & img {

@@ -14,7 +14,7 @@ const Typography = (props) => {
 
 const Typo = styled.section`
   .profile__details {
-    margin-top: 1rem;
+    margin-top: 0;
 
     & .profile__name {
       display: block;
