@@ -1,13 +1,7 @@
-import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Date from "./Components/Date/Date";
-import Feedlane from "./Components/Feedlane/Feedlane";
-import NewPost from "./Components/MakePost/NewPost";
-import SignIn from "./Components/SignIn";
-import SignUp from "./Components/SignUp";
-import LandingPage from "./Pages/LandingPage";
-import ProfilePage from "./Pages/ProfilePage";
+import react from 'react'
+import reactLogo from './assets/react.svg'
+import './App.css'
+import LandingPage from './Pages/LandingPage'
 
 function App() {
  const [user, setUser] = useState(false);
@@ -41,6 +35,32 @@ function App() {
    )}
   </div>
  );
+  const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
+
+  const drawerToggleClickHandler = () => {
+    setSideDrawerOpen(!sideDrawerOpen);
+  };
+
+  const backdropClickHandler = () => {
+    setSideDrawerOpen(false);
+    setOpenComment(false);
+  };
+
+  return (
+    <Apph className="App">
+      <header className="landing">
+        <Toolbar drawerClickHandler={drawerToggleClickHandler} />
+        <Sidedrawer show={sideDrawerOpen} />
+        {sideDrawerOpen ? <Backdrop click={backdropClickHandler} /> : null}
+      </header>
+
+      <section className="landingpage__sidenav">
+        <Sidenav />
+        <Profile />
+      </section>
+      <LandingPage backdrop={backdropClickHandler} />
+    </Apph>
+  );
 }
 
-export default App;
+export default App

@@ -1,15 +1,18 @@
 import { useState } from "react";
-import Toolbar from "../Components/Toolbar/Toolbar";
-import Sidedrawer from "../Components/Sidedrawer/Sidedrawer";
+
 import Backdrop from "../Components/Backdrop/Backdrop";
 import styled from "styled-components";
-import Sidenav from "../Components/Sidenav/Sidenav";
-import Profile from "../Components/ProfileSIdenav/Profile";
+
 // import Feedlane from "../Components/Feedlane/Feedlane";
 
-const LandingPage = () => {
- const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
+const LandingPage = (props) => {
+ 
 
+  
+
+  const openCommentHandler = () => {
+    setOpenComment(!openComment);
+  };
  const drawerToggleClickHandler = () => {
   setSideDrawerOpen(!sideDrawerOpen);
  };
@@ -18,6 +21,31 @@ const LandingPage = () => {
   setSideDrawerOpen(false);
  };
 
+  return (
+    <Home>
+      <main className="landingPage__main">
+        
+        <section className="landing__comment">
+          <PostComment show={openComment} close={openCommentHandler} />
+          {openComment ? <Backdrop click={props.backdropClick} /> : null}
+        </section>
+        <section className="landing__feedlane">
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+          <Feedlane comment={openCommentHandler} />
+        </section>
+
+        <section className="landing__post-general">
+          <PostFeed />
+        </section>
+      </main>
+    </Home>
+  );
  return (
   <Home>
    <main className="landingPage__main">
@@ -49,12 +77,14 @@ const Home = styled.main`
   flex-direction: row;
  }
 
- .landingpage__sidenav {
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0px 7px 3px rgba(0, 0, 0, 0.3);
-  background-color: white;
- }
+  
+  .landing__comment{
+    position: fixed;
+  }
+  .landing__feedlane {
+    margin-left: 30rem;
+  }
+  
 `;
 
 export default LandingPage;
