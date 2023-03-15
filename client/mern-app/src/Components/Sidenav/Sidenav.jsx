@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Dasboard, Profile, Settings } from "../Icons/Icons";
+import ProfileNav from "../ProfileSIdenav/Profile";
 
 const Sidenav = () => {
  return (
@@ -25,6 +26,9 @@ const Sidenav = () => {
       <span className="dashlink__text">Settings</span>
      </li>
     </ul>
+    <section className="dashlink__profile">
+      <ProfileNav />
+    </section>
    </main>
   </Dashlinks>
  );
@@ -37,7 +41,8 @@ const Dashlinks = styled.main`
   color: black;
   padding: 2rem;
   border-radius: 0px 0px 30px 30px;
-  height: 50vh;
+  height: 100vh;
+  background: #ffffff;
  }
 
  a{

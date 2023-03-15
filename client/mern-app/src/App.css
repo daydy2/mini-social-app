@@ -1,24 +1,26 @@
 *,
 *::after,
 *::after {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 body {
- background: #f1f1ef;
+  background: #f1f1ef;
 }
+
 html {
- font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 .App {
- display: flex;
- flex-direction: row;
- gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
-.no-user{
+.no-user {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,28 +30,36 @@ html {
 }
 
 .sidebar {
- position: fixed;
- height: 100%;
+  position: fixed;
+  height: 100%;
+
 }
 
 .main-area {
- margin-top: 7rem;
- display: flex;
- flex-direction: row;
- width: 100%;
- margin-left: 20rem;
- gap: 2rem;
- padding: 1.5rem;
- /* position: relative; */
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: 20rem;
+  gap: 2rem;
+  padding: 1.5rem;
+  /* position: relative; */
 }
 
 .feed-area {
- 
- width: 70%;
+  width: 68%;
 }
 
 .newpost {
- width: 30%;
- /* position: fixed; */
- margin-right: 0;
+  width: 22%;
+  position: fixed;
+  margin-right: .5em;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .main-area {
+    margin-left: 0rem;
+    gap: 0rem;
+  }
 }

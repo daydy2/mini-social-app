@@ -51,10 +51,10 @@ const FEED = styled.main`
  main {
   display: flex;
 
-  width: 68rem;
+  width: 100%;
   margin: 1rem;
   background-color: #ffffff;
-  padding: 1.5rem;
+  padding: 1rem ;
   border-radius: 0 3rem 0 3rem;
  }
  .feedUser {

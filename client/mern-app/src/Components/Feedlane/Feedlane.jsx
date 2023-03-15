@@ -26,6 +26,7 @@ const Feedlane = () => {
 };
 
 const FEEDLANE = styled.main`
+width: 100%:
  display: flex;
  flex-direction: column;
  justify-content: center;

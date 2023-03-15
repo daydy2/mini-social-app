@@ -1,40 +1,17 @@
-import react from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import LandingPage from './Pages/LandingPage'
+import react, { useState } from "react";
+import "./App.css";
+import LandingPage from "./Pages/LandingPage";
+import { Routes, Route } from "react-router-dom";
+import Feedlane from "./Components/Feedlane/Feedlane";
+import ProfilePage from "./Pages/ProfilePage";
+import Date from "./Components/Date/Date";
+import NewPost from "./Components/MakePost/NewPost";
+import Toolbar from "./Components/Toolbar/Toolbar";
+import Sidedrawer from "./Components/SideDrawer/SideDrawer";
+import Backdrop from "./Components/Backdrop/Backdrop";
 
-function App() {
- const [user, setUser] = useState(false);
- return (
-  <div className="App">
-   {user ? (
-    <div className="no-user">
-     <Routes>
-      <Route path="/register" element={<SignUp />} />
-      <Route path="/login" element={<SignIn />} />
-     </Routes>
-    </div>
-   ) : (
-    <>
-     <div className="sidebar">
-      <LandingPage />
-     </div>
-     <div className="main-area">
-      <div className="feed-area">
-       <Routes>
-        <Route path="/" element={<Feedlane />} />
-        <Route path="/profile" element={<ProfilePage />} />
-       </Routes>
-      </div>
-      <div className="newpost">
-       <Date />
-       <NewPost />
-      </div>
-     </div>
-    </>
-   )}
-  </div>
- );
+const App = () => {
+  const [user, setUser] = useState(false);
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
 
   const drawerToggleClickHandler = () => {
@@ -42,25 +19,43 @@ function App() {
   };
 
   const backdropClickHandler = () => {
-    setSideDrawerOpen(false);
-    setOpenComment(false);
+    setSideDrawerOpen(!sideDrawerOpen);
   };
-
   return (
-    <Apph className="App">
+    <div className="App">
       <header className="landing">
         <Toolbar drawerClickHandler={drawerToggleClickHandler} />
         <Sidedrawer show={sideDrawerOpen} />
         {sideDrawerOpen ? <Backdrop click={backdropClickHandler} /> : null}
       </header>
-
-      <section className="landingpage__sidenav">
-        <Sidenav />
-        <Profile />
-      </section>
-      <LandingPage backdrop={backdropClickHandler} />
-    </Apph>
+      {user ? (
+        <div className="no-user">
+          <Routes>
+            <Route path="/register" element={<SignUp />} />
+            <Route path="/login" element={<SignIn />} />
+          </Routes>
+        </div>
+      ) : (
+        <>
+          <div className="sidebar">
+            <LandingPage />
+          </div>
+          <div className="main-area">
+            <div className="feed-area">
+              <Routes>
+                <Route path="/" element={<Feedlane />} />
+                <Route path="/profile" element={<ProfilePage />} />
+              </Routes>
+            </div>
+            <div className="newpost">
+              <Date />
+              <NewPost />
+            </div>
+          </div>
+        </>)}
+    </div>
   );
-}
+};
 
-export default App
+export default App;
+
