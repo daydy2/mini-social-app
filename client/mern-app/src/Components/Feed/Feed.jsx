@@ -1,14 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { Comment, Follow, UnFollow } from "../Icons/Icons";
+import Modal from "../Modal";
 import ProfileImg from "../ProfileImg/ProfileImg";
 import Typography from "../ProfileTypography/Typography";
 
+
+
 const Feed = (props) => {
- //   const [showComment, setShowComment] = useState(false);
- //   const handleComment = () => {
- //     setShowComment(!showComment);
- //   };
+   const [showComment, setShowComment] = useState(false);
+   const handleComment = () => {
+     setShowComment(!showComment);
+   };
  return (
   <FEED>
    <main>
@@ -27,7 +30,7 @@ const Feed = (props) => {
       {/* timeStamp */}
      </p>
      <div className="feedConnect">
-      <span className="feedConnect__span" onClick={() => {}}>
+      <span className="feedConnect__span" onClick={handleComment}>
        {Comment}
        <div className="descriptors">Comment</div>
       </span>
@@ -41,6 +44,7 @@ const Feed = (props) => {
        <div className="descriptors">UnFollow</div>
       </span>
      </div>
+     {showComment ? <Modal open={showComment} close={handleComment} />: null}
     </section>
    </main>
   </FEED>

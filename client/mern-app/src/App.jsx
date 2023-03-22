@@ -9,6 +9,7 @@ import NewPost from "./Components/MakePost/NewPost";
 import Toolbar from "./Components/Toolbar/Toolbar";
 import Sidedrawer from "./Components/SideDrawer/SideDrawer";
 import Backdrop from "./Components/Backdrop/Backdrop";
+import CommentPage from "./Pages/CommentPage";
 
 const App = () => {
   const [user, setUser] = useState(false);
@@ -45,6 +46,7 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Feedlane />} />
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/comment" element={<CommentPage />} />
               </Routes>
             </div>
             <div className="newpost">

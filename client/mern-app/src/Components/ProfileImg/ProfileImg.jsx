@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProfileImg = (props) => {
+const ProfileImg = ({width, height, ...rest}) => {
     const imgLink = "https://avatars.githubusercontent.com/u/81338845?v=4";
   return (
     <Image>
@@ -10,7 +10,8 @@ const ProfileImg = (props) => {
           src={imgLink}
           alt="profile image"
           onError={(event) => (event.target.style.display = "none")}
-          style={{width: props.width, height: props.height}}
+          style={{width: width, height: height}}
+          {...rest}
         />
       </section>
     </Image>
